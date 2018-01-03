@@ -41,7 +41,7 @@
         <input type="hidden" name="nguoiLon" value="<?php echo $nguoiLon; ?>">
         <div class="dong">Người lớn:</div>
         <div class="dong canle">
-            <span><?php echo $nguoiLon ."x". $rowGiaVe['donGia']; ?></span> VNĐ
+            <span><?php echo $nguoiLon ."x". number_format($rowGiaVe['donGia']); ?></span> VNĐ
         </div>
     </div>
     <div>
@@ -49,7 +49,7 @@
         <input type="hidden" name="treEm" value="<?php echo  $treEm ; ?>">
         <div class="dong">Trẻ em:</div>
         <div class="dong canle">
-            <span><?php echo $treEm ."x". (0.85 * $rowGiaVe['donGia']); ?></span> VNĐ
+            <span><?php echo $treEm ."x". number_format(0.85 * $rowGiaVe['donGia']); ?></span> VNĐ
         </div>
     </div>
     <div>
@@ -61,12 +61,12 @@
         </div>
     </div>
     <div>
-        <div class="dong">
+        <div class="dong" style="font-weight:bold!important;">
             Tổng giá tiền
         </div>            
         <div class="dong canle">
             <span style="display: inline" id="tongdi"></span>
-            <?php echo ($nguoiLon*$rowGiaVe['donGia'] + $treEm*0.85*$rowGiaVe['donGia']);?> VNĐ
+            <?php $tongdi = $nguoiLon*$rowGiaVe['donGia'] + $treEm*0.85*$rowGiaVe['donGia']; echo number_format($tongdi);?> VNĐ
         </div>
     </div>         
 </div>

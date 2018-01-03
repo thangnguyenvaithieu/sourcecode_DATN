@@ -39,7 +39,7 @@ background:#cdcdcd;
                  if(!isset($_GET['keyword']))
                     {
                         // $sql="select * from sanbay order by maSanBay asc";
-                        $soTuyenBayTrenTrang=10;
+                        $soTuyenBayTrenTrang=40;
                         if(isset($_GET['trang']))
                         {
                             $trang=$_GET['trang'];

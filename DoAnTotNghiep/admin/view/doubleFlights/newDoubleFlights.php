@@ -78,7 +78,7 @@
                 <div layout="row" class="form-group">
                     <label flex="20">Sân bay đi: </label>
                     <div flex="80">
-                            <select name="noiDi" id="noiDi" class="form-control">
+                            <select name="noiDi" id="noiDi" class="form-control" required>
                                 <option value="">Nơi đi</option>
                                     <?php 
                                         $sql="select * from sanbay";
@@ -95,7 +95,7 @@
                 <div layout="row" class="form-group">
                         <label flex="20">Mã sân bay đi: </label>
                         <div flex="80">
-                           <select name="maSanBayDi" id="maSanBayDi" class="form-control">
+                           <select name="maSanBayDi" id="maSanBayDi" class="form-control" required>
                                 <option value="">None</option>
                                     <?php 
                                         $sql="select * from sanbay";
@@ -113,7 +113,7 @@
                 <div layout="row" class="form-group">
                         <label flex="20">Sân bay đến: </label>
                         <div flex="80">
-                            <select name="noiDen" id="noiDen" class="form-control">
+                            <select name="noiDen" id="noiDen" class="form-control" required>
                                 <option value="">Nơi đến</option>
                                     <?php 
                                         $sql = "select * from sanbay";
@@ -130,7 +130,7 @@
                 <div layout="row">
                         <label flex="20">Mã sân bay đến: </label>
                         <div flex="80">
-                            <select name="maSanBayDen" id="maSanBayDen" class="form-control">
+                            <select name="maSanBayDen" id="maSanBayDen" class="form-control" required>
                                 <option value="">None</option>
                                     <?php 
                                             $sql="select * from sanbay";

@@ -32,7 +32,7 @@
         <!-- Bắt đầu form login -->
         <div flex="60" layout="colum" layout-align="center center">
              <?php
-                     include("view/login_form.php");
+                    include("view/login_form.php"); 
               ?>
         </div>
        

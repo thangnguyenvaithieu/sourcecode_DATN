@@ -20,7 +20,7 @@
             break;
         case 'insert':
             if($_POST['maChuyenBay']=="" || $_POST['maHangMayBay']=="" || $_POST['maTuyenBay']=="" || $_POST['ngayKhoiHanh']==""
-            ||$_POST['ngayDen']==""||$_POST['gioKhoiHanh']==""||$_POST['gioDen']==""||$_POST['trangThai']=="")
+            ||$_POST['ngayDen']==""||$_POST['gioKhoiHanh']==""||$_POST['gioDen']==""||$_POST['trangThai']=="" || $_POST['donGia']=="")
                 {
                     echo '<script languague="javascript">';
                         echo 'toastr.warning("Nhập đầy đủ các trường bắt buộc!","Thông báo")';
@@ -28,36 +28,46 @@
                 }
             else
                 {
-                $checkMCB=$_POST['maChuyenBay']; 
-                $checkMHV=$_POST['maHangVe'];  
-                //Kiểm tra xem đã thêm vào bảng chuyến bay chưa => Thêm vào bảng hangve_chuyenbay                   
-                $sql="select * from chuyenbay where maChuyenBay='$checkMCB'";
-                $rows=query($sql);
-                $count=mysqli_num_rows($rows);
-                if($count == 0 )
+                if(is_numeric($_POST['donGia']))
                 {
-                    insert();
-                }
-                // Kiểm tra xem mã hạng vé và mã chuyến bay đã tồn tại trong bảng hangve_chuyenbay chưa
-                $sql="select * from hangve_chuyenbay where maChuyenBay='$checkMCB' and maHangVe='$checkMHV'";            
-                $rows=query($sql);
-                $count=mysqli_num_rows($rows);            
-                if($count == 0)
-                {
-                    insertHVCB();
-                }
-                else 
-                {
+                    $checkMCB=$_POST['maChuyenBay']; 
+                    $checkMHV=$_POST['maHangVe'];  
+                    //Kiểm tra xem đã thêm vào bảng chuyến bay chưa => Thêm vào bảng hangve_chuyenbay                   
+                    $sql="select * from chuyenbay where maChuyenBay='$checkMCB'";
+                    $rows=query($sql);
+                    $count=mysqli_num_rows($rows);
+                        if($count == 0 )
+                        {
+                            insert();
+                        }
+                    // Kiểm tra xem mã hạng vé và mã chuyến bay đã tồn tại trong bảng hangve_chuyenbay chưa
+                    $sql="select * from hangve_chuyenbay where maChuyenBay='$checkMCB' and maHangVe='$checkMHV'";  
+                    // var_dump($sql);         
+                    $rows=query($sql);
+                    $count=mysqli_num_rows($rows);            
+                        if($count == 0)
+                        {
+                            insertHVCB();
+                        }
+                        else 
+                        {
+                            echo '<script languague="javascript">';
+                                echo 'toastr.warning("Mã hạng vé và mã chuyến bay bị trùng. Nhập lại!");';
+                                // echo 'toastr.clear();';
+                            echo '</script>';
+                            break;   
+                        }                      
                     echo '<script languague="javascript">';
-                        echo 'toastr.warning("Mã hạng vé và mã chuyến bay bị trùng. Nhập lại!");';
+                        echo 'toastr.success("Thêm chuyến bay thành công");';
                         // echo 'toastr.clear();';
-                    echo '</script>';
-                    break;   
-                }                      
-                echo '<script languague="javascript">';
-                    echo 'toastr.success("Thêm chuyến bay thành công");';
-                    // echo 'toastr.clear();';
-                echo '</script>';                      
+                    echo '</script>'; 
+                }
+                else {
+                     echo '<script languague="javascript">';
+                         echo 'toastr.warning("Nhập giá vé đúng định dạng số!");';
+                     echo '</script>';
+                    break; 
+                }                                     
                 }
                 break;
         case 'edit':   
@@ -74,26 +84,35 @@
             break;
         case 'update': 
             if($_POST['maChuyenBay']=="" || $_POST['maHangMayBay']=="" || $_POST['maTuyenBay']=="" || $_POST['ngayKhoiHanh']==""
-            ||$_POST['ngayDen']==""||$_POST['gioKhoiHanh']==""||$_POST['gioDen']==""||$_POST['trangThai']=="")
+            ||$_POST['ngayDen']==""||$_POST['gioKhoiHanh']==""||$_POST['gioDen']==""||$_POST['trangThai']=="" ||$_POST['donGia']=="")
                 {
                     echo '<script languague="javascript">';
                         echo 'toastr.warning("Nhập đầy đủ các trường bắt buộc!","Thông báo")';                                         
                     echo '</script>';                
                 }
                 else
-                { 
-                $maHV=$_POST['maHangVe'];
-                //Khi mã chuyến bay thay đổi                
-                $checkMaCB=$_POST['maChuyenBay'];                
-                if($checkMaCB != $maCB) 
-                {                    
-                    updateBSCBHV($maCB);                    
-                }               
-                update($maCB);
-                updateCBHV($maCB,$maHV);                
-                echo '<script languague="javascript">';                   
-                    echo 'toastr.success("Cập nhật chuyến bay thành công!");';                    
-                echo '</script>';           
+                {      
+                    if(is_numeric($_POST['donGia']))
+                    {
+                    $maHV=$_POST['maHangVe'];
+                    //Khi mã chuyến bay thay đổi                
+                    $checkMaCB=$_POST['maChuyenBay'];                
+                        if($checkMaCB != $maCB) 
+                        {                    
+                            updateBSCBHV($maCB);                    
+                        }               
+                        update($maCB);
+                        updateCBHV($maCB,$maHV);                
+                        echo '<script languague="javascript">';                   
+                            echo 'toastr.success("Cập nhật chuyến bay thành công!");';                    
+                        echo '</script>';           
+                    }
+                    else {
+                        echo '<script languague="javascript">';
+                            echo 'toastr.warning("Nhập giá số đúng định dạng")';                                         
+                        echo '</script>';
+                        break; 
+                    }
                 }
                 break;             
         case 'delete':           

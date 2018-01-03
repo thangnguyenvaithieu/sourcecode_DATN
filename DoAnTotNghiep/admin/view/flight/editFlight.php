@@ -5,7 +5,7 @@
                     <div layout="row" class="form-group">
                         <label flex="20">Hãng máy bay: </label>
                         <div flex="80">
-                                <select name="maHangMayBay" id="maHangMayBay" class="form-control">
+                                <select name="maHangMayBay" id="maHangMayBay" class="form-control" required>
                                     <option value="">Tên hãng(Mã hãng)</option>
                                         <?php 
                                             $sql="select * from hangMayBay";
@@ -47,7 +47,7 @@
                     <div layout="row" class="form-group">
                             <label flex="20">Mã tuyến bay: </label>
                             <div flex="80">
-                                <select name="maTuyenBay" id="maTuyenBay" class="form-control">
+                                <select name="maTuyenBay" id="maTuyenBay" class="form-control" required>
                                     <option value="">Mã tuyến bay( Nơi đi-Nơi đến )</option>
                                         <?php 
                                             $sqlTB = "select * from tuyenbay";
@@ -76,7 +76,7 @@
                     <div layout="row" class="form-group">
                             <label flex="20">Mã hạng vé: </label>
                             <div flex="80">
-                                <select name="maHangVe" id="maHangVe" class="form-control">
+                                <select name="maHangVe" id="maHangVe" class="form-control" required>
                                     <!-- <option value="">Mã hạng vé( Tên hạng vé )</option> -->
                                         <!-- <?php 
                                             $sql = "select * from hangve";
@@ -107,7 +107,7 @@
                     <!-- Lấy giá vé theo mã hạng vé và mã chuyến bay -->
                     <label style="width: 120px;">Giá vé:</label>                 
                         <md-input-container id="idInputDonGia">                        
-                            <input style="width: 450px; margin-left:5px;"  name="donGia" id="donGia"  value="<?php echo $row['donGia']; ?>" >
+                            <input style="width: 450px; margin-left:5px;" required  name="donGia" id="donGia"  value="<?php echo $row['donGia']; ?>" >
                             <div ng-messages="formEditFlight.donGia.$error">
                                 <div ng-message="required" class="error-log">
                                     Yêu cầu nhập đầy đủ mã chuyến bay.                                              
@@ -120,25 +120,25 @@
                     <div layout="row" class="form-group">
                         <label flex="20">Ngày khởi hành:</label> 
                         <div flex="80">
-                            <input type="date" style="width: 500px;" name="ngayKhoiHanh" id="ngayKhoiHanh" value="<?php echo $row['ngayKhoiHanh']; ?>">
+                            <input type="date" style="width: 500px;" required name="ngayKhoiHanh" id="ngayKhoiHanh" value="<?php echo $row['ngayKhoiHanh']; ?>">
                         </div>
                     </div>
                     <div layout="row" class="form-group">
                         <label flex="20">Ngày đến:</label> 
                         <div flex="80">
-                            <input type="date" style="width: 500px;" name="ngayDen" id="ngayDen" value="<?php echo $row['ngayDen']; ?>">
+                            <input type="date" style="width: 500px;" required name="ngayDen" id="ngayDen" value="<?php echo $row['ngayDen']; ?>">
                         </div>
                     </div>
                     <div layout="row" class="form-group">
                         <label flex="20">Giờ khởi hành:</label> 
                         <div flex="80">
-                            <input type="time" style="width: 500px;" name="gioKhoiHanh" id="gioKhoiHanh" value="<?php echo $row['gioKhoiHanh']; ?>">
+                            <input type="time" style="width: 500px;" required name="gioKhoiHanh" id="gioKhoiHanh" value="<?php echo $row['gioKhoiHanh']; ?>">
                         </div>
                     </div> 
                     <div layout="row" class="form-group">
                         <label flex="20">Giờ đến:</label> 
                         <div flex="80">
-                            <input type="time" style="width: 500px;" name="gioDen" id="gioDen" value="<?php echo $row['gioDen']; ?>">
+                            <input type="time" style="width: 500px;" required name="gioDen" id="gioDen" value="<?php echo $row['gioDen']; ?>">
                         </div>
                     </div>
                                 

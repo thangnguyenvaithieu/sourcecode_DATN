@@ -35,7 +35,7 @@
         <!-- Kết thúc form lựa chọn chuyến bay -->
 
         <div flex="5"></div>
-        <md-divider style="border-top-width: 3px !important;"></md-divider>
+        <!-- <md-divider style="border-top-width: 3px !important;"></md-divider> -->
         <!-- Thông tin công ty --> 
         
         <!-- <div flex style="background:red;"></div>      -->

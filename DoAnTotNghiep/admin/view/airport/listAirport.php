@@ -37,7 +37,7 @@
                     {
                         // $sql="select * from sanbay order by maSanBay asc";
                         
-                        $soSanBayTrenTrang = 10;
+                        $soSanBayTrenTrang = 40;
                         if(isset($_GET['trang']))
                         {
                             $trang=$_GET['trang'];

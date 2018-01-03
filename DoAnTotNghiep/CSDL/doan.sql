@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2017 at 01:46 AM
+-- Generation Time: Jan 03, 2018 at 03:24 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -99,7 +99,6 @@ INSERT INTO `hangve` (`maHangVe`, `tenHangVe`, `moTa`) VALUES
 CREATE TABLE `hangve_chuyenbay` (
   `ID` int(10) NOT NULL,
   `donGia` int(15) NOT NULL,
-  `maPhieuDatCho` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `maHangVe` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `maChuyenBay` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -108,25 +107,47 @@ CREATE TABLE `hangve_chuyenbay` (
 -- Dumping data for table `hangve_chuyenbay`
 --
 
-INSERT INTO `hangve_chuyenbay` (`ID`, `donGia`, `maPhieuDatCho`, `maHangVe`, `maChuyenBay`) VALUES
-(8, 2500, NULL, 'PT', 'VNA02'),
-(9, 3500, NULL, 'TG', 'VNA02'),
-(13, 1500, NULL, 'PT', 'VNA01'),
-(14, 1500, NULL, 'TK', 'VNA02'),
-(15, 3000, NULL, 'TG', 'VNA01'),
-(16, 1000, NULL, 'TK', 'VNA01'),
-(17, 1500, NULL, 'PT', 'VNA03'),
-(18, 2000, NULL, 'TG', 'VNA03'),
-(19, 750, NULL, 'TK', 'VNA03'),
-(20, 1500, NULL, 'PT', 'VNA04'),
-(21, 2500, NULL, 'TG', 'VNA04'),
-(22, 1000, NULL, 'TK', 'VNA04'),
-(23, 25000, NULL, 'PT', 'VNA05'),
-(24, 35000, NULL, 'TG', 'VNA05'),
-(25, 20000, NULL, 'TK', 'VNA05'),
-(26, 35000, NULL, 'PT', 'VNA07'),
-(27, 45000, NULL, 'TG', 'VNA07'),
-(28, 30000, NULL, 'TK', 'VNA07');
+INSERT INTO `hangve_chuyenbay` (`ID`, `donGia`, `maHangVe`, `maChuyenBay`) VALUES
+(8, 250000, 'PT', 'VNA02'),
+(9, 350000, 'TG', 'VNA02'),
+(13, 150000, 'PT', 'VNA01'),
+(14, 150000, 'TK', 'VNA02'),
+(15, 300000, 'TG', 'VNA01'),
+(16, 100000, 'TK', 'VNA01'),
+(18, 200000, 'TG', 'VNA03'),
+(19, 100000, 'TK', 'VNA03'),
+(20, 150000, 'PT', 'VNA04'),
+(21, 250000, 'TG', 'VNA04'),
+(24, 350000, 'TG', 'VNA05'),
+(25, 200000, 'TK', 'VNA05'),
+(27, 450000, 'TG', 'VNA07'),
+(28, 300000, 'TK', 'VNA07'),
+(29, 150000, 'PT', 'VNA03'),
+(30, 100000, 'TK', 'VNA04'),
+(31, 300000, 'PT', 'VNA05'),
+(32, 400000, 'PT', 'VNA07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hangve_chuyenbay_phieudatcho`
+--
+
+CREATE TABLE `hangve_chuyenbay_phieudatcho` (
+  `ID` int(10) NOT NULL,
+  `maPhieuDatCho` varchar(30) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `hangve_chuyenbay_phieudatcho`
+--
+
+INSERT INTO `hangve_chuyenbay_phieudatcho` (`ID`, `maPhieuDatCho`) VALUES
+(13, '2511017'),
+(13, '6208664'),
+(13, '9322831'),
+(31, '3225611'),
+(32, '3225611');
 
 -- --------------------------------------------------------
 
@@ -146,7 +167,13 @@ CREATE TABLE `hanhkhach` (
 --
 
 INSERT INTO `hanhkhach` (`maCodeHanhKhach`, `hoTenHK`, `gioiTinhHK`, `maPhieuDatCho`) VALUES
-(1, 'Nguyễn Văn Thằng', 1, '152522112017');
+(1, 'Nguyễn Văn Thằng', 1, '152522112017'),
+(58, 'Đỗ Minh Đức', 1, '3225611'),
+(59, 'Nguyễn Thị Dung', 1, '3225611'),
+(60, 'Trần Huy Hoàng', 1, '2511017'),
+(61, 'Quách Thị Hông Nhung', 0, '2511017'),
+(62, 'Tạ Quang Tiến', 1, '6208664'),
+(63, 'Nguyễn Văn Quang', 0, '9322831');
 
 -- --------------------------------------------------------
 
@@ -170,7 +197,13 @@ CREATE TABLE `phieudatcho` (
 --
 
 INSERT INTO `phieudatcho` (`maPhieuDatCho`, `ngayDatVe`, `hoTen`, `email`, `gioiTinh`, `soDienThoai`, `trangThaiThanhToan`, `idUser`) VALUES
-('152522112017', '0000-00-00', 'Nguyễn Văn Thăng', 'demo@gmail.com', 1, '0123456789', 1, 12);
+('152522112017', '0000-00-00', 'Nguyễn Văn Thăng', 'demo@gmail.com', 1, '0123456789', 1, 12),
+('2511017', '2017-12-28', 'Nguyễn Văn Nam', 'nam@email.com', 1, '12345678', 0, NULL),
+('3225611', '2017-12-28', 'Dương Thế Vĩnh', 'vinh@gmail.com', 1, '1679837718', 0, NULL),
+('5268739', '2017-12-28', 'Dương Thế Vĩnh', 'vinh@gmail.com', 1, '1679837718', 0, NULL),
+('6208664', '2017-12-29', 'Nguyễn Thị Thúy Hồng', 'hong@gmail.com', 0, '123456789', 0, NULL),
+('8932745', '2017-12-28', 'Dương Thế Vĩnh', 'vinh@gmail.com', 1, '1679837718', 0, NULL),
+('9322831', '2017-12-29', 'Nguyễn Văn Quyến', 'quyendq@gmail.com', 1, '1698319298', 0, 20);
 
 -- --------------------------------------------------------
 
@@ -331,9 +364,15 @@ ALTER TABLE `hangve`
 --
 ALTER TABLE `hangve_chuyenbay`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `maPhieuDatCho` (`maPhieuDatCho`),
   ADD KEY `maHangVe` (`maHangVe`),
   ADD KEY `maChuyenBay` (`maChuyenBay`);
+
+--
+-- Indexes for table `hangve_chuyenbay_phieudatcho`
+--
+ALTER TABLE `hangve_chuyenbay_phieudatcho`
+  ADD PRIMARY KEY (`ID`,`maPhieuDatCho`),
+  ADD KEY `maPhieuDatCho` (`maPhieuDatCho`);
 
 --
 -- Indexes for table `hanhkhach`
@@ -383,12 +422,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `hangve_chuyenbay`
 --
 ALTER TABLE `hangve_chuyenbay`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `hanhkhach`
 --
 ALTER TABLE `hanhkhach`
-  MODIFY `maCodeHanhKhach` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `maCodeHanhKhach` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `tuyenbay_sanbay`
 --
@@ -415,8 +454,14 @@ ALTER TABLE `chuyenbay`
 --
 ALTER TABLE `hangve_chuyenbay`
   ADD CONSTRAINT `hangve_chuyenbay_ibfk_1` FOREIGN KEY (`maHangVe`) REFERENCES `hangve` (`maHangVe`),
-  ADD CONSTRAINT `hangve_chuyenbay_ibfk_2` FOREIGN KEY (`maChuyenBay`) REFERENCES `chuyenbay` (`maChuyenBay`),
-  ADD CONSTRAINT `hangve_chuyenbay_ibfk_3` FOREIGN KEY (`maPhieuDatCho`) REFERENCES `phieudatcho` (`maPhieuDatCho`);
+  ADD CONSTRAINT `hangve_chuyenbay_ibfk_2` FOREIGN KEY (`maChuyenBay`) REFERENCES `chuyenbay` (`maChuyenBay`);
+
+--
+-- Constraints for table `hangve_chuyenbay_phieudatcho`
+--
+ALTER TABLE `hangve_chuyenbay_phieudatcho`
+  ADD CONSTRAINT `hangve_chuyenbay_phieudatcho_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `hangve_chuyenbay` (`ID`),
+  ADD CONSTRAINT `hangve_chuyenbay_phieudatcho_ibfk_2` FOREIGN KEY (`maPhieuDatCho`) REFERENCES `phieudatcho` (`maPhieuDatCho`);
 
 --
 -- Constraints for table `hanhkhach`

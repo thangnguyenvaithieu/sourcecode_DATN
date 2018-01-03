@@ -70,10 +70,12 @@ if(isset($_POST['submit'])){
                }else {
                         if($row['thuocNhom']==0)
                         {       
+                                $_SESSION['idUser']=$row['idUser'];
                                 $_SESSION['email']=$row['email'];
                                 $_SESSION['hoTen']=$row['hoTen'];
                                 $_SESSION['soDienThoai']=$row['soDienThoai'];
-                                $_SESSION['gioiTinh']=$row['gioiTinh'];                                
+                                $_SESSION['gioiTinh']=$row['gioiTinh'];  
+                                //var_dump($_SESSION['gioiTinh']) ;                             
                                  header('location:index.php');
                                  ob_flush();
                         }

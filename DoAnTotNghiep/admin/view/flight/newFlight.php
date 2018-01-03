@@ -4,7 +4,7 @@
                     <div layout="row" class="form-group">
                         <label flex="20">Hãng máy bay: </label>
                         <div flex="80">
-                                <select name="maHangMayBay" id="maHangMayBay" class="form-control">
+                                <select name="maHangMayBay" id="maHangMayBay" class="form-control" required>
                                     <option value="">Tên hãng(Mã hãng)</option>
                                         <?php 
                                             $sql="select * from hangMayBay";
@@ -33,7 +33,7 @@
                     <div layout="row" class="form-group">
                             <label flex="20">Mã tuyến bay: </label>
                             <div flex="80">
-                                <select name="maTuyenBay" id="maTuyenBay" class="form-control">
+                                <select name="maTuyenBay" id="maTuyenBay" class="form-control" required>
                                     <option value="">Mã tuyến bay( Nơi đi-Nơi đến )</option>
                                         <?php 
                                             $sql = "select * from tuyenbay";
@@ -50,7 +50,7 @@
                     <div layout="row" class="form-group">
                             <label flex="20">Mã hạng vé: </label>
                             <div flex="80">
-                                <select name="maHangVe" id="maHangVe" class="form-control">
+                                <select name="maHangVe" id="maHangVe" class="form-control" required>
                                     <option value="">Mã hạng vé( Tên hạng vé )</option>
                                         <?php 
                                             $sql = "select * from hangve";
@@ -80,25 +80,25 @@
                     <div layout="row" class="form-group">
                         <label flex="20">Ngày khởi hành:</label> 
                         <div flex="80">
-                            <input type="date" style="width: 500px;" name="ngayKhoiHanh">
+                            <input type="date" style="width: 500px;" name="ngayKhoiHanh" required>
                         </div>
                     </div>
                     <div layout="row" class="form-group">
                         <label flex="20">Ngày đến:</label> 
                         <div flex="80">
-                            <input type="date" style="width: 500px;" name="ngayDen">
+                            <input type="date" style="width: 500px;" name="ngayDen" required>
                         </div>
                     </div>
                     <div layout="row" class="form-group">
                         <label flex="20">Giờ khởi hành:</label> 
                         <div flex="80">
-                            <input type="time" style="width: 500px;" name="gioKhoiHanh">
+                            <input type="time" style="width: 500px;" name="gioKhoiHanh" required>
                         </div>
                     </div> 
                     <div layout="row" class="form-group">
                         <label flex="20">Giờ đến:</label> 
                         <div flex="80">
-                            <input type="time" style="width: 500px;" name="gioDen">
+                            <input type="time" style="width: 500px;" name="gioDen" required>
                         </div>
                     </div>
                                 

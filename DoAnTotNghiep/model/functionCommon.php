@@ -42,10 +42,10 @@ function layChuyenBay($maTB,$ngayDi)
 // Lay dayn du thong tin chuyen bay
 function layCTCB($maCB,$maHV)
 {
-    $sql="SELECT hmb.maHangMayBay,hmb.tenHangMayBay, cb.maChuyenBay, cb.ngayKhoiHanh, cb.ngayDen, cb.gioKhoiHanh,cb.gioDen, hv.tenHangVe, hvcb.donGia
-    FROM  chuyenbay as cb JOIN hangve_chuyenbay as hvcb on cb.maChuyenBay=hvcb.maChuyenBay join hangmaybay as hmb on cb.maHangMayBay=hmb.maHangMayBay join hangve as hv on hvcb.maHangVe=hv.maHangVe
-    WHERE cb.maChuyenBay='$maCB' AND hvcb.maHangVe='$maHV'";
-    // return var_dump($sql);
+    $sql="SELECT hmb.maHangMayBay,hmb.tenHangMayBay, cb.maChuyenBay, cb.ngayKhoiHanh, cb.ngayDen, cb.gioKhoiHanh,cb.gioDen, hv.tenHangVe, hvcb.donGia, tb.noiDi, tb.noiDen
+FROM  chuyenbay as cb JOIN hangve_chuyenbay as hvcb on cb.maChuyenBay=hvcb.maChuyenBay join hangmaybay as hmb on cb.maHangMayBay=hmb.maHangMayBay join hangve as hv on hvcb.maHangVe=hv.maHangVe join tuyenbay as tb on cb.maTuyenBay = tb.maTuyenBay
+WHERE cb.maChuyenBay='$maCB' AND hvcb.maHangVe='$maHV'";
+    //  var_dump($sql);
     // exit();
     return query($sql);
 }
@@ -53,6 +53,12 @@ function layCTCB($maCB,$maHV)
 function layGiaVe($maCB,$maHV)
 {
     $sql="SELECT donGia FROM hangve_chuyenbay WHERE maChuyenBay='$maCB' AND maHangVe='$maHV'";
+    return query($sql);
+}
+
+function layID($maCB,$maHV)
+{
+    $sql="SELECT ID FROM hangve_chuyenbay WHERE maChuyenBay='$maCB' AND maHangVe='$maHV'";
     return query($sql);
 }
 

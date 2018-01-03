@@ -78,12 +78,12 @@
                                                             <?php echo $rowCTCB['gioDen']; ?>
                                                         </td>
                                                         <td align="center" style="color:#EE0000;font-weight:bold;">
-                                                           <?php echo $rowCTCB['donGia']; ?> VND
+                                                           <?php echo number_format($rowCTCB['donGia']); ?> VND
                                                         </td>
                                                          <td align="center">
                                                             <span>
                                                                 <input type="radio" name="1Cchecked" value="<?php echo $maCB1C; ?>"
-                                                                   onchange="getCB1CChecked('<?php echo $maCB1C; ?>');"/>
+                                                                   onchange="getCB1CChecked('<?php echo $maCB1C; ?>');" required/>
                                                             </span>
                                                         </td>
                                                         <td align="center">                                                                        

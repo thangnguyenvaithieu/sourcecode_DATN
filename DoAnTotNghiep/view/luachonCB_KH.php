@@ -85,12 +85,12 @@
                                                             <?php echo $rowCTCB['gioDen']; ?>
                                                         </td>
                                                         <td align="center" style="color:#EE0000;font-weight:bold;">
-                                                           <?php echo $rowCTCB['donGia']; ?> VND
+                                                           <?php echo number_format($rowCTCB['donGia']); ?> VND
                                                         </td>
                                                         <td align="center">
                                                             <span>
                                                                 <input type="radio" name="KHchecked" value="<?php echo $maCBKH ?>"
-                                                                   onchange="getCBKHCChecked('<?php echo $maCBKH ?>');"/>
+                                                                   onchange="getCBKHCChecked('<?php echo $maCBKH ?>');" required/>
                                                             </span>
                                                         </td>
                                                         <td align="center">                                                                           

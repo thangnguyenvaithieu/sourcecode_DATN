@@ -46,7 +46,7 @@
                 <?php                
                  if(!isset($_GET['keyword']))
                     {                        
-                        $soChuyenBayTrenTrang=10;
+                        $soChuyenBayTrenTrang=40;
                         if(isset($_GET['trang']))
                         {
                             $trang=$_GET['trang'];
@@ -119,7 +119,7 @@
                                                 <tr>
                                                     <td><?php echo $rowCTCB['maHangVe']; ?></td>
                                                     <td><?php echo $rowCTCB['tenHangVe']; ?></td>
-                                                    <td><?php echo $rowCTCB['donGia']; ?></td>
+                                                    <td><?php echo number_format($rowCTCB['donGia']); ?></td>
                                                 </tr>
                                             <?php
                                             }
